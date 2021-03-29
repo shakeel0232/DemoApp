@@ -65,7 +65,6 @@ class CharAdapter extends BaseAdapter {
             view.setTag(R.id.os_texts, holder.tvName);
             view.setTag(R.id.os_texts2, holder.tvAge);
             view.setTag(R.id.os_images, holder.Image);
-
         } else {
             holder = (ViewHolder) view.getTag();
         }
