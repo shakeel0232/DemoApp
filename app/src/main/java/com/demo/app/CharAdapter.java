@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -69,14 +70,21 @@ class CharAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
         String date = mainDataList.get(position).getCharAge();
-        String[] dateParts = date.split("-");
-        String day = dateParts[0];
-        String month = dateParts[1];
-        String year = dateParts[2];
-        String DOB = CalculateDOB(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day));
+        String DOB = "";
+        try {
+            String[] dateParts = date.split("-");
+            String day = dateParts[0];
+            String month = dateParts[1];
+            String year = dateParts[2];
+            DOB = CalculateDOB(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day));
+            holder.tvAge.setText(DOB + " Years old");
+        } catch (Exception e) {
+            holder.tvAge.setText(mainDataList.get(position).getCharAge());
+        }
+
 
         holder.tvName.setText(mainDataList.get(position).getCharName());
-        holder.tvAge.setText(DOB + " Years old");
+
 
         Picasso.get().load(mainDataList.get(position).getCharUrl()).into(holder.Image);
 

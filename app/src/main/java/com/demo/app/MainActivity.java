@@ -46,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
                                 for (int i = 0; i < JSONArray.length(); i++) {
                                     JSONObject jsonObject = JSONArray.getJSONObject(i);
                                     name = jsonObject.getString("name");
-//                                    birthday = jsonObject.getString("birthday");
-                                    birthday = jsonObject.getString("birthday").replace("Unknown", "0-0-2021");
+                                    birthday = jsonObject.getString("birthday");
+//                                    birthday = jsonObject.getString("birthday").replace("Unknown", "0-0-2021");
                                     img = jsonObject.getString("img");
                                     Character mChar = new Character();
                                     mChar.setCharName(name);
